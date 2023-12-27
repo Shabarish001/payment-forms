@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tailwind Starter Template - Multi Section Form / Scrollspy: Tailwind Toolbox</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet">
+    <!--Replace with your tailwind.css once created-->
+    <style>
+        .max-h-64 {
+            max-height: 16rem;
+        }
+        /*Quick overrides of the form input as using the CDN version*/
+        .form-input,
+        .form-textarea,
+        .form-select,
+        .form-multiselect {
+            background-color: #edf2f7;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
+    <!--Container-->
+    <div class="container w-screen h-screen flex flex-wrap mx-auto px-2 pt-8 lg:pt-16 mt-16">
+        <div class="w-screen lg:w-1/5 px-6 text-xl text-gray-800 leading-normal">
+            <p class="text-base font-bold py-2 lg:pb-6 text-gray-700">Menu</p>
+            <div class="block lg:hidden sticky inset-0">
+                <button id="menu-toggle" class="flex w-full justify-end px-3 py-3 bg-white lg:bg-transparent border rounded border-gray-600 hover:border-yellow-600 appearance-none focus:outline-none">
+                    <svg class="fill-current h-3 float-right" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="w-full sticky inset-0 hidden max-h-64 lg:h-auto overflow-x-hidden overflow-y-auto lg:overflow-y-hidden lg:block mt-0 my-2 lg:my-0 border border-gray-400 lg:border-transparent bg-white shadow lg:shadow-none lg:bg-transparent z-20" style="top:6em;" id="menu-content">
+                <ul class="list-reset py-2 md:py-0">
+                    <li class="py-1 md:my-2 hover:bg-green-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-green-600">
+                        <a href='#section1' class="block pl-4 align-middle text-gray-700 no-underline hover:text-green-600">
+                            <span class="pb-1 md:pb-0 text-sm">personal data</span>
+                        </a>
+                    </li>
+                    <li class="py-1 md:my-2 hover:bg-green-100 lg:hover:bg-transparent border-l-4 border-transparent">
+                        <a href='#section2' class="block pl-4 align-middle text-gray-700 no-underline hover:text-green-600">
+                            <span class="pb-1 md:pb-0 text-sm">wechsel</span>
+                        </a>
+                    </li>
+                    <li class="py-1 md:my-2 hover:bg-green-100 lg:hover:bg-transparent border-l-4 border-transparent">
+                        <a href='#section3' class="block pl-4 align-middle text-gray-700 no-underline hover:text-green-600">
+                            <span class="pb-1 md:pb-0 text-sm">zahlung</span>
+                        </a>
+                    </li>
+                    <li class="py-1 md:my-2 hover:bg-green-100 lg:hover:bg-transparent border-l-4 border-transparent">
+                        <a href='#section4' class="block pl-4 align-middle text-gray-700 no-underline hover:text-green-600">
+                            <span class="pb-1 md:pb-0 text-sm">bestätigung</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Section container-->
+        <div class="w-full lg:w-4/5">
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+            <!--Title-->
+            <h2 id='section1' class="font-sans font-bold break-normal text-gray-700 px-2 pb-4 text-xl">Persona data</h2>
+
+            <!--Card-->
+            <!-- component -->
+            <div class=" p-6 bg-gray-10 flex items-center justify-center">
+        <div class="bg-white rounded-tl-3xl rounded-tr-3xl shadow-lg p-4 px-4 md:p-8 mb-6">
+
+          <div class="bg-white ">
+            <img src="WestfalenWIND-Logo.png" style="width: 10%; float: none;">
+            <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2 text-gray-700 text-xl w-1/5">[Tariff Name]</h2>
+          <div class="flex flex-col items-end">
+            <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2  text-gray-700 text-xl w-1/5">[Tariff Price Monthly]</h2>
+            <h2 id="section1" class="break-normal font-medium font-sans pb-8 px-2  text-gray-700 text-lg w-1/5">[Tariff Price Annual]</h2>
+            <h3 class="font-sans ">Tarif-Details anzeigen</h3>
+          </div>
+        </div>
+        <hr class="border-t mb-4 border-gray-400 w-full" />
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
+                <div class="md:col-span-2">
+                    <div>
+                    <label for="Name" class="font-bold">Anrede</label>
+                </div>
+                    <div class="inline-flex items-center">
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="male" class="ml-2 mr-2 ">Herr</label>
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="female" class="ml-2 mr-2">Frau</label>
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="K.A." class="ml-2">K.A</label>
+                    </div>
+                  </div>
+
+                <div class="md:col-span-2">
+                    <label for="Name" class="font-bold">Vorname</label>
+                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <input id="Name" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    </div>
+                  </div>
+    
+                  <div class="md:col-span-1">
+                    <label for="lname" class="font-bold">Nachname</label>
+                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <input id="lname" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    </div>
+                  </div>
+                <!--Zip-->
+                  <div class="md:col-span-2">
+                    <label for="zipcode" class="font-bold">Postleitzahl</label>
+                    <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                  </div>
+                <!--city-->
+                <div class="md:col-span-3">
+                    <label for="city" class="font-bold">Ort</label>
+                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+                <!--address,state-->
+                  <div class="md:col-span-3">
+                    <label for="address" class="font-bold">Straße, Hausnummer</label>
+                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+    
+                  <div class="md:col-span-2">
+                    <label for="country" class="font-bold">Zusatz</label>
+                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <input name="country" id="country" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    </div>
+                  </div>
+                <!--email, telfone,DOB-->
+                <div class="md:col-span-3">
+                  <label for="email" class="font-bold">Email</label>
+                  <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                </div>
+
+                <div class="md:col-span-1">
+                    <label for="telfone" class="font-bold">Telifone</label>
+                    <input type="number" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+
+                  <div class="md:col-span-1">
+                    <label for="DOB" class="font-bold">Geburstag</label>
+                    <input type="number"  id="date" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+
+                <div class="md:col-span-5">
+                  <div class="inline-flex items-center">
+                    <input type="checkbox" id="billing_same" class="form-checkbox" />
+                    <label for="billing_same" class="ml-2">abweichende Rechngsadress</label>
+                  </div>
+                </div>
+
+                <!--Double-->
+                <div class="md:col-span-2">
+                    <div>
+                    <label for="Name" class="font-bold">Anrede</label>
+                </div>
+                    <div class="inline-flex items-center">
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="male" class="ml-2 mr-2">Herr</label>
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="female" class="ml-2 mr-2">Frau</label>
+                      <input type="checkbox" id="Gender" class="form-checkbox" />
+                      <label for="K.A." class="ml-2">K.A</label>
+                    </div>
+                  </div>
+
+                <div class="md:col-span-2">
+                    <label for="Name" class="font-bold">Vorname</label>
+                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <input id="Name" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    </div>
+                  </div>
+    
+                  <div class="md:col-span-1">
+                    <label for="lname"class="font-bold">Nachname</label>
+                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <input id="lname" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    </div>
+                  </div>
+                <!--Zip-->
+                  <div class="md:col-span-2">
+                    <label for="zipcode" class="font-bold">Postleitzahl</label>
+                    <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                  </div>
+                <!--city-->
+                <div class="md:col-span-3">
+                    <label for="city" class="font-bold">Ort</label>
+                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+                <!--address,state-->
+                  <div class="md:col-span-3">
+                    <label for="address" class="font-bold">Straße, Hausnummer</label>
+                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                  </div>
+    
+                  <div class="md:col-span-2">
+                    <label for="country" class="font-bold">Zusatz</label>
+                      <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                         <input name="country" id="country" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                      </div>
+                  </div>
+
+                  <hr class="border-t mb-4 mt-4 border-gray-400 w-full" />
+        
+
+                  <div class="md:col-span-5 flex justify-end items-center mt-10">
+                    <div class="md:w-1/3"></div>
+                    <div class="flex items-center md:text-sm px-4 text-base text-gray-600">
+                        <span class="text-base text-green-600 font-bold">&lt;</span>
+                        <a href="#" class="text-base md:text-sm text-green-600 font-bold no-underline hover:underline">Zurück</a>
+                    </div>
+                    <div>
+                        <button class="shadow bg-green-700 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                            Wechseldaten
+                        </button>
+                    </div>
+                </div>
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+            <!--/Card-->
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 id='section2' class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">wechsel</h2>
+
+            <!--Card-->
+            <div class=" p-6 bg-gray-10 flex items-center justify-center ">
+                <div class="bg-white rounded-tl-3xl rounded-tr-3xl shadow-lg p-4 px-4 md:p-8 mb-6">
+
+                <div class="bg-white ">
+                    <img src="WestfalenWIND-Logo.png" style="width: 10%; float: none;">
+                    <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2 text-gray-700 text-xl w-1/5">[Tariff Name]</h2>
+                  <div class="flex flex-col items-end">
+                       <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2  text-gray-700 text-xl w-1/5">[Tariff Price Monthly]</h2>
+                       <h2 id="section1" class="break-normal font-medium font-sans pb-8 px-2  text-gray-700 text-lg w-1/5">[Tariff Price Annual]</h2>
+                       <h3 class="font-sans ">Tarif-Details anzeigen</h3>
+                  </div>
+                </div>
+          
+                <hr class="border-t mb-4 border-gray-400 w-full" />
+
+                    <div class="lg:col-span-2">
+                      <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
+                        <div class="md:col-span-5">
+                           <label for="quetion"><span class="font-bold">Anlass für Deinen wechsel?</span></label>
+                        </div>
+                       <div class="md:col-span-5">
+                        <div class="inline-flex items-center">
+                          <input type="checkbox" id="change" class="form-checkbox" />
+                          <label for="billing_same" class="ml-2">Anbieterwechsel</label>
+                        </div>
+                        <div>
+                            <p>Du möchtest Deinen Anbieter und Tarif wechseln</p>
+                        </div>
+                      </div>
+                      <div class="md:col-span-5 pb-4">
+                        <div class="inline-flex items-center">
+                          <input type="checkbox" id="Umzug" class="form-checkbox" />
+                          <label for="billing_same" class="ml-2">umzug</label>
+                        </div>
+                        <div>
+                            <p>Du bist in den letzen 6 wochen umgezogen oder wirst Kürze umziehen.</p>
+                        </div>
+                      </div>
+                    
+                      <!--Vorheriger-->
+
+                      <div class="md:col-span-3 pb-4">
+                        <label for="provider" class="font-bold">Vorheriger Versoger</label>
+                        <input type="text" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                      </div>
+        
+                      <div class="md:col-span-2">
+                        <label for="country" class="font-bold">Kunden nummer</label>
+                        <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                          <input type="number" id="country" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                        </div>
+                      </div>
+
+                      <div class="md:col-span-5 pb-4">
+                        <div>
+                        <label for="Name" class="font-bold">Zur Ermittlung Deines Stromzählers benötigen wir eine Angabe</label>
+                        </div>
+                        <div class="inline-flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <label for="male" class="ml-2 mr-2">Zählernummer</label>
+                          <input type="checkbox" id="matriculationID" class="form-checkbox" />
+                          <label for="female" class="ml-2">Marktlokations-ID</label>
+                        </div>
+                      </div>
+
+                      <div class="md:col-span-2 pb-4">
+                        <label for="Zahlernummer" class="font-bold">Zählernummer</label>
+                        <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                          <input type="number" id="paymentNumber" placeholder="" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                        </div>
+                      </div>
+
+                      <div class="md:col-span-5 pb-4">
+                        <div>
+                        <label for="Name" class="font-bold">Hast Du Deinen Vertrag bereits gekündigt?</label>
+                        </div>
+                        <div class="inline-flex items-center">
+                          <input type="checkbox" id="Yes" class="form-checkbox" />
+                          <label for="male" class="ml-2 mr-2">ja</label>
+                          <input type="checkbox" id="No" class="form-checkbox" />
+                          <label for="female" class="ml-2">Nein</label>
+                        </div>
+                      </div>
+
+                      <div class="md:col-span-5">
+                        <label class="bg-gray-100 rounded p-2 block text-sm md:text-base leading-normal">Kein Problem-wir kündigen den Vertrag bei Deinem alten Versorger, ohne dass Du es merkst.</label>
+                      </div>
+
+                      <div class="md:col-span-5 pt-4 pb-4">
+                        <label class="font-bold">Hast Du einen Wunsch-Wechsel-Termin?</label>
+                      
+                         <div class="md:col-span-5">
+                          <div class="inline-flex items-center">
+                            <input type="checkbox" id="appointment-posible" class="form-checkbox" />
+                            <label for="appointment-a" class="ml-2">Nächstmöglicher  Termin</label>
+                          </div>
+                        </div>
+                        <div class="md:col-span-5">
+                          <div class="inline-flex items-center">
+                            <input type="checkbox" id="choose-appointment" class="form-checkbox" />
+                            <label for="appointment-b" class="ml-2">Termin auswählen</label>
+                          </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-t mb-4 border-gray-400 w-full " />
+
+                    <div class="md:col-span-5 flex justify-end items-center mt-10">
+                      <div class="md:w-1/3"></div>
+                      <div class="flex items-center md:text-sm px-4 text-base text-gray-600">
+                          <span class="text-base text-green-600 font-bold">&lt;</span>
+                          <a href="#" class="text-base md:text-sm text-green-600 font-bold no-underline hover:underline">Zurück</a>
+                      </div>
+                      <div>
+                          <button class="shadow bg-green-700 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                              Wechseldaten
+                          </button>
+                      </div>
+                  </div>
+                  
+
+                      </div>
+                      </div>
+                    </div>
+                </div>
+            <!--/Card-->
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">Zahlung</h2>
+
+            <!--Card-->
+            <div class=" p-6 bg-gray-10 flex items-center justify-center">
+              <div class="bg-white rounded-tl-3xl rounded-tr-3xl shadow-lg p-4 px-4 md:p-8 mb-6">
+
+                <div class="bg-white ">
+                  <img src="WestfalenWIND-Logo.png" style="width: 10%; float: none;">
+                  <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2 text-gray-700 text-xl w-1/5">[Tariff Name]</h2>
+                <div class="flex flex-col items-end">
+                     <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2  text-gray-700 text-xl w-1/5">[Tariff Price Monthly]</h2>
+                     <h2 id="section1" class="break-normal font-medium font-sans pb-8 px-2  text-gray-700 text-lg w-1/5">[Tariff Price Annual]</h2>
+                    <h3 class="font-sans">Tarif-Details anzeigen</h3>
+                </div>
+              </div>
+              
+              <hr class="border-t mb-4 border-gray-400 w-full" />
+        
+                  <div class="lg:col-span-5 pb-4">
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
+                      <div class="md:col-span-5">
+                        <label for="paymentNumber" class="font-bold">Zahlungsart</label>
+                     </div>
+
+                     <div class="md:col-span-5">
+                      <div class="inline-flex items-center">
+                        <input type="checkbox" id="change" class="form-checkbox" />
+                        <label for="billing_same" class="ml-2">SEPA-Lastschrift</label>
+                      </div>
+                      <div>
+                          <p>Der Versorger dard fällige Beträge von Deinem Konto einziehen</p>
+                      </div>
+                    </div>
+                    <div class="md:col-span-6">
+                      <div class="inline-flex items-center">
+                        <input type="checkbox" id="change" class="form-checkbox" />
+                        <label for="billing_same" class="ml-2"> überweist</label>
+                      </div>
+                      <div>
+                          <p>Du überweist die fälligen Beträge rechtzeitig selbst.</p>
+                      </div>
+                    </div>
+                    <!--IBAN-->
+                    
+                    <div class="md:col-span-5 pb-4">
+                      <label for="Bank_Number" class="font-bold">IBAN</label>
+                      <input type="number" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                    </div>
+
+                    <div class="md:col-span-5 pb-4">
+                      <label for="Bank_Name" class="font-bold">Name der Bank</label>
+                      <input type="text" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                    </div>
+
+                    <div class="md:col-span-5">
+                      <div class="inline-flex items-center">
+                        <input type="checkbox" id="appointment-posible" class="form-checkbox" />
+                        <label for="appointment-a" class="ml-2">Ich ermachtige <span>WestfalenWIND Strom GmbH</span>, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugliech weise ich mein kreditinstitut an, diese Lastschrift einzulosen. </label>
+                      </div>
+                    </div>
+                   
+                    <hr class="border-t mb-4 border-gray-400 w-full" />
+                    
+                    <div class="md:col-span-5 flex justify-end items-center mt-10">
+                      <div class="md:w-1/3"></div>
+                      <div class="flex items-center md:text-sm px-4 text-base text-gray-600">
+                          <span class="text-base text-green-600 font-bold">&lt;</span>
+                          <a href="#" class="text-base md:text-sm text-green-600 font-bold no-underline hover:underline">Zurück</a>
+                      </div>
+                      <div>
+                          <button class="shadow bg-green-700 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                              Wechseldaten
+                          </button>
+                      </div>
+                  </div>
+                  
+
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!--/Card-->
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">Bestätigung</h2>
+
+            <!--Card-->
+            <div class=" p-6 bg-gray-10 flex items-center justify-center">
+              <div class="bg-white rounded-tl-3xl rounded-tr-3xl shadow-lg p-4 px-4 md:p-8 mb-6">
+                 <div class="bg-white ">
+                    <img src="WestfalenWIND-Logo.png" style="width: 10%; float: none;">
+                    <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2 text-gray-700 text-xl w-1/5">[Tariff Name]</h2>
+                 <div class="flex flex-col items-end">
+                   <h2 id="section1" class="break-normal font-bold font-sans pb-8 px-2  text-gray-700 text-xl w-1/5">[Tariff Price Monthly]</h2>
+                   <h2 id="section1" class="break-normal font-medium font-sans pb-8 px-2  text-gray-700 text-lg w-1/5">[Tariff Price Annual]</h2>
+                   <h3 class="font-sans ">Tarif-Details anzeigen</h3>
+               </div>
+            </div>
+            <hr class="border-t mb-4 border-gray-400 w-full" />
+
+            <div class="bg-white p-10 rounded-lg min-w-full lg:min-w-0">
+            <div class="flex flex-col items-center ">
+              <img src="planet.png" alt="Success Icon" class="mb-4 w-1/4 h-1/4" />
+            <h1 class="text-2xl font-bold text-center mb-2">Dein Wechsel war erfolgreich!</h1>
+            <p class="text-center mb-4" class="font-bold">In Kürze erhältst Du eine Bestätigungsmail Deines neuen Versorgers</p>
+            </div>
+            </div>
+
+            <hr class="border-t mb-4 border-gray-400 w-full" />
+            <div class="md:col-span-5 flex justify-end items-center mt-10">
+              <div class="md:w-1/3"></div>
+              <div class="flex items-center md:text-sm px-4 text-base text-gray-600">
+                  <span class="text-base text-green-600 font-bold">&lt;</span>
+                  <a href="#" class="text-base md:text-sm text-green-600 font-bold no-underline hover:underline">Zurück</a>
+              </div>
+              <div>
+                  <button class="shadow bg-green-700 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                      Wechseldaten
+                  </button>
+              </div>
+          </div>
+          
+
+      </div>
+    </section>
+      <!--/container-->
+      <hr class="bg-gray-300 my-12">
+
+<!-- Toggle dropdown list -->
+<script>
+/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+var userMenuDiv = document.getElementById("userMenu");
+var userMenu = document.getElementById("userButton");
+
+ var helpMenuDiv = document.getElementById("menu-content");
+ var helpMenu = document.getElementById("menu-toggle");
+
+document.onclick = check;
+
+function check(e){
+  var target = (e && e.target) || (event && event.srcElement);
+
+  //User Menu
+  if (!checkParent(target, userMenuDiv)) {
+	// click NOT on the menu
+	if (checkParent(target, userMenu)) {
+	  // click on the link
+	  if (userMenuDiv.classList.contains("invisible")) {
+		userMenuDiv.classList.remove("invisible");
+	  } else {userMenuDiv.classList.add("invisible");}
+	} else {
+	  // click both outside link and outside menu, hide menu
+	  userMenuDiv.classList.add("invisible");
+	}
+  }
+
+   //Help Menu
+   if (!checkParent(target, helpMenuDiv)) {
+	// click NOT on the menu
+	if (checkParent(target, helpMenu)) {
+	  // click on the link
+	  if (helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.remove("hidden");
+	  } else {helpMenuDiv.classList.add("hidden");}
+	} else {
+	  // click both outside link and outside menu, hide menu
+	  helpMenuDiv.classList.add("hidden");
+	}
+   }
+
+}
+
+function checkParent(t, elm) {
+  while(t.parentNode) {
+	if( t == elm ) {return true;}
+	t = t.parentNode;
+  }
+  return false;
+}
+
+</script>
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Scroll Spy -->
+<script>
+/* http://jsfiddle.net/LwLBx/ */
+
+// Cache selectors
+var lastId,
+    topMenu = $("#menu-content"),
+    topMenuHeight = topMenu.outerHeight()+175,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  if (!helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.add("hidden");
+	  }
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("font-bold border-yellow-600")
+         .end().filter("[href='#"+id+"']").parent().addClass("font-bold border-yellow-600");
+   }
+});
+
+</script>
+
+</body>
+</html>
